@@ -1,5 +1,10 @@
+"use client";
+
+import { useState } from "react";
+
 export default function List() {
   let 상품 = ["Tomatoes", "Pasta", "Coconut"];
+  let [수량, 수량변경] = useState([1, 2, 3]);
 
   return (
     <div>
@@ -10,19 +15,28 @@ export default function List() {
           <div className="food" key={i}>
             <img src={`/jacket${i + 1}.png`} className="food-img" />
             <h4>{상품[i]} $40</h4>
+            <button
+              onClick={() => {
+                let minuscopy = [...수량];
+                minuscopy[i]--;
+                수량변경(minuscopy);
+              }}
+            >
+              -
+            </button>
+            <span> {수량[i]} </span>
+            <button
+              onClick={() => {
+                let copy = [...수량];
+                copy[i]++;
+                수량변경(copy);
+              }}
+            >
+              +
+            </button>
           </div>
         );
       })}
-
-      {/* <div className="food">
-        <h4>{상품[0]} $40</h4>
-      </div>
-      <div className="food">
-        <h4>{상품[1]} $40</h4>
-      </div>
-      <div className="food">
-        <h4>{상품[2]} $40</h4>
-      </div> */}
     </div>
   );
 }
