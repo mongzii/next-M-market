@@ -148,3 +148,32 @@ body {
   border-bottom: 1px solid gray;
   line-height: 0px;
 }
+
+.list-bg {
+  background: rgb(249, 250, 255);
+  padding: 10px;
+}
+.list-item {
+  background: white;
+  border-radius: 10px;
+  padding: 20px;
+  margin-bottom: 5px;
+  box-shadow: rgb(224, 224, 224) 0px 2px 4px 0px;
+}
+.list-bg h2 {
+  font-size: 40px;
+  color: gray;
+}
+.list-item h4 {
+  font-size: 20px;
+  font-weight: 800;
+  margin: 0;
+  color: black;
+}
+.list-item a {
+  text-decoration: none;
+}
+.list-item p {
+  color: gray;
+  margin: 5px 0px;
+}
