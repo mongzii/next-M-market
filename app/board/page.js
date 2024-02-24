@@ -3,6 +3,7 @@
 import { connectDB } from "@/util/database";
 import Link from "next/link";
 import DetailLink from "./DetailLink";
+import WriteBtn from "./WriteBtn";
 //import { MongoClient } from "mongodb";
 
 export default async function Qa() {
@@ -25,6 +26,7 @@ export default async function Qa() {
           </div>
         );
       })}
+      <WriteBtn />
       {/* <DetailLink /> */}
     </div>
   );
