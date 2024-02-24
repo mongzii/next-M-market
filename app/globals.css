@@ -134,6 +134,10 @@ body {
 .navbar a {
   margin-right: 10px;
   text-decoration: none;
+  color: black;
+}
+.logo {
+  font-weight: bold;
 }
 
 .food-img {
@@ -192,4 +196,8 @@ button {
   background: lightgray;
   border: none;
   border-radius: 5px;
+}
+
+a {
+  text-decoration: none;
 }

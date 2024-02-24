@@ -23,6 +23,7 @@ export default async function Qa() {
             </Link>
             <p>{data[i].content}</p>
             {/* <p>{data[i]._id}</p> */}
+            <Link href={`/board/edit/` + data[i]._id}>수정</Link>
           </div>
         );
       })}
