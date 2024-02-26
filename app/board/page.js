@@ -4,6 +4,7 @@ import { connectDB } from "@/util/database";
 import Link from "next/link";
 import DetailLink from "./DetailLink";
 import WriteBtn from "./WriteBtn";
+import BoardItem from "./BoardItem";
 //import { MongoClient } from "mongodb";
 
 export default async function Qa() {
@@ -14,20 +15,7 @@ export default async function Qa() {
 
   return (
     <div className="list-bg">
-      <h2>Q & A</h2>
-      {data.map((a, i) => {
-        return (
-          <div className="list-item" key={i}>
-            <Link href={`/detail/` + data[i]._id}>
-              <h4>{data[i].title}</h4>
-            </Link>
-            <p>{data[i].content}</p>
-            {/* <p>{data[i]._id}</p> */}
-            <Link href={`/board/edit/` + data[i]._id}>수정</Link>
-          </div>
-        );
-      })}
-      <WriteBtn />
+      <BoardItem data={data} />
       {/* <DetailLink /> */}
     </div>
   );

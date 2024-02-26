@@ -201,3 +201,8 @@ button {
 a {
   text-decoration: none;
 }
+
+.list-item {
+  opacity: 1;
+  transition: all 1s;
+}
