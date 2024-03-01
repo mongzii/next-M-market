@@ -1,3 +1,5 @@
+//게시판내용 제목누르면 뜨는 상세페이지
+
 import { connectDB } from "@/util/database";
 import { ObjectId } from "mongodb";
 
