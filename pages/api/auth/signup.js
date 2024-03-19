@@ -29,7 +29,8 @@ export default async function handle(요청, 응답) {
       const client = await connectDB;
       const db = client.db("market");
       await db.collection("user_cred").insertOne(요청.body);
-      응답.status(200).json("가입완료");
+      //응답.status(200).json("가입완료");
+      응답.redirect(302, "/");
     } else {
       return 응답.status(500).json("중복가입은 안됩니다!!!");
     }
