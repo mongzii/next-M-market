@@ -15,8 +15,9 @@ export const authOptions = {
       //1. 로그인페이지 폼 자동생성해주는 코드
       name: "credentials",
       credentials: {
-        email: { label: "email", type: "text" },
-        password: { label: "password", type: "password" },
+        // name: { label: "Name", type: "text" },
+        email: { label: "Email", type: "text" },
+        password: { label: "Password", type: "password" },
       },
       //2.로그인 요청시 실행되는코드
       //직접 DB에서 아이디, 비번 비교하고

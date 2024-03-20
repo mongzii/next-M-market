@@ -1,8 +1,11 @@
 "use client";
 
 import { useState } from "react";
+import { useRouter } from "next/navigation";
 
 export default function List() {
+  let router = useRouter();
+
   let 상품 = [
     "Tomatoes",
     "Pasta",
@@ -21,9 +24,34 @@ export default function List() {
       <h2 className="title">상품목록</h2>
       <div className="merchandise">
         <div className="list-left">
-          <li>Jacket</li>
-          <li>Shoe</li>
-          <li>Bag</li>
+          <li
+            onClick={() => {
+              router.push("/list");
+            }}
+          >
+            All
+          </li>
+          <li
+            onClick={() => {
+              router.push("/list/jacket");
+            }}
+          >
+            Jacket
+          </li>
+          <li
+            onClick={() => {
+              router.push("/list/shoe");
+            }}
+          >
+            Shoe
+          </li>
+          <li
+            onClick={() => {
+              router.push("/list/bag");
+            }}
+          >
+            Bag
+          </li>
         </div>
         <div className="list-right">
           <div className="goods">
