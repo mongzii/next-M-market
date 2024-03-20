@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { useRouter } from "next/navigation";
+import ListLeft from "../ListLeft";
 
 export default function List() {
   let router = useRouter();
@@ -24,7 +25,8 @@ export default function List() {
       <h2 className="title">상품목록</h2>
       <div className="merchandise">
         <div className="list-left">
-          <li
+          <ListLeft />
+          {/* <li
             onClick={() => {
               router.push("/list");
             }}
@@ -51,7 +53,7 @@ export default function List() {
             }}
           >
             Bag
-          </li>
+          </li> */}
         </div>
         <div className="list-right">
           <div className="goods">
@@ -82,9 +84,7 @@ export default function List() {
                 </div>
               );
             })}
-            {/* </div>
 
-          <div> */}
             {상품.map((a, i) => {
               return (
                 <div className="food" key={i}>
