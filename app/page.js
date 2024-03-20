@@ -10,7 +10,7 @@ export default async function Home() {
   return (
     <div>
       <h4 className="title">애플후레시</h4>
-      <p className="title-sub">by Moon</p>
+      {/* <p className="title-sub">by Moon</p> */}
     </div>
   );
 }

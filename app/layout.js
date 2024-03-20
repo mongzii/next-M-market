@@ -43,6 +43,7 @@ export default async function RootLayout({ children }) {
           )}
         </div>
         {children}
+        <div className="footer">Copyright 2024 by Moon</div>
       </body>
     </html>
   );
