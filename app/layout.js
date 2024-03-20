@@ -28,15 +28,15 @@ export default async function RootLayout({ children }) {
           <Link href="/list">List</Link>
           <Link href="/cart">Cart</Link>
           <Link href="/board">Q&A</Link>
-          <DetailLink />
+          {/* <DetailLink /> */}
 
           {session ? (
-            <span>
-              {session.user.name}
+            <span className="head-design1">
+              <div className="head-memberInfo">{session.user.name}</div>
               <LogoutBtn />
             </span>
           ) : (
-            <div>
+            <div className="head-design1">
               <LoginBtn />
               <SignupBtn />
             </div>

@@ -108,9 +108,19 @@ a {
 
 body {
   margin: 0;
-  background: #303030;
-  color: white;
+  background: #171717;
+  color: #eeeeee;
   box-sizing: border-box;
+}
+.head-design1 {
+  /* border: 5px solid red; */
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+}
+.head-memberInfo {
+  color: blue;
+  line-height: 250%;
 }
 .title {
   text-align: center;
@@ -133,10 +143,20 @@ body {
   flex-direction: row;
 }
 .list-left {
-  border: 10px solid blue;
+  /* border: 10px solid blue; */
   width: 20%;
   margin-left: 20px;
   margin-right: 20px;
+
+  li {
+    padding-top: 20px;
+    padding-left: 20px;
+    font-size: 1.5rem;
+  }
+  li:hover {
+    cursor: pointer;
+    color: #337357;
+  }
 }
 .list-right {
   /* border: 10px solid red; */
@@ -145,21 +165,28 @@ body {
   margin-right: 20px;
 }
 .goods {
-  border: 10px solid black;
+  /* border: 10px solid black; */
   display: flex;
   flex-wrap: wrap;
   margin: 20px;
 }
 
 .navbar {
-  background: white;
+  /* background: #00224d; */
+  /* background-color: #222831; */
+  background: #eeeeee;
   padding: 20px;
-  color: black;
+  color: #171717;
 }
 .navbar a {
   margin-right: 10px;
   text-decoration: none;
-  color: black;
+  color: #171717;
+}
+.navbar button {
+  background-color: #171717;
+  color: #eeeeee;
+  font-weight: 550;
 }
 .logo {
   font-weight: bold;
