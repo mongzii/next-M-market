@@ -26,34 +26,6 @@ export default function List() {
       <div className="merchandise">
         <div className="list-left">
           <ListLeft />
-          {/* <li
-            onClick={() => {
-              router.push("/list");
-            }}
-          >
-            All
-          </li>
-          <li
-            onClick={() => {
-              router.push("/list/jacket");
-            }}
-          >
-            Jacket
-          </li>
-          <li
-            onClick={() => {
-              router.push("/list/shoe");
-            }}
-          >
-            Shoe
-          </li>
-          <li
-            onClick={() => {
-              router.push("/list/bag");
-            }}
-          >
-            Bag
-          </li> */}
         </div>
         <div className="list-right">
           <div className="goods">
