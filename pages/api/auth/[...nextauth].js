@@ -65,6 +65,11 @@ export const authOptions = {
   },
   secret: process.env.SECRET,
   adapter: MongoDBAdapter(connectDB),
+
+  //내가 만든 로그인페이지로 이동할수있게
+  pages: {
+    signUp: "/login",
+  },
 };
 
 export default NextAuth(authOptions);
