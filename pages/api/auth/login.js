@@ -46,7 +46,8 @@ export default async function handle(요청, 응답) {
       return 응답.status(200).json(요청.body);
       return 응답.redirect(302, "/");
     } else {
-      return console.log("틀림");
+      return 응답.status(500).json("틀림");
+      return 응답.redirect(302, "/login");
     }
   }
 }

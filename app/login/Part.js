@@ -30,7 +30,7 @@ export default function Part() {
           alert("로그인성공"),
           router.push("/");
       })
-      .catch(err => console.log(err));
+      .catch(err => alert("실패"));
   };
 
   return (
@@ -43,3 +43,5 @@ export default function Part() {
     </div>
   );
 }
+
+//이제 로그인이 된 정보가 리덕스로 연결되어서 헤더에서 보이게하자.
