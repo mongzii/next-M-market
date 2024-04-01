@@ -22,7 +22,6 @@ export default function Part() {
     const body = { email, pw };
     axios
       .post("/api/auth/login", body)
-      //.then(res => setEmail(res.data.email))
       //.then(res => console.log(res.data))
       .then(res => {
         setEmail(res.data.email),
@@ -30,15 +29,17 @@ export default function Part() {
           alert("로그인성공"),
           router.push("/");
       })
-      .catch(err => alert("실패"));
+      .catch(err => {
+        alert("실패"), setEmail(""), setPw("");
+      });
   };
 
   return (
     <div>
       <h4>Email</h4>
-      <input onChange={handleEmail} />
+      <input value={email} onChange={handleEmail} />
       <h4>Password</h4>
-      <input onChange={handlePw} />
+      <input type="password" value={pw} onChange={handlePw} />
       <button onClick={handleLogin}>로그인</button>
     </div>
   );
