@@ -3,21 +3,27 @@ import GoogleLoginBtn from "../GoogleLoginBtn";
 import EmailPart from "./EmailPart";
 import { connectDB } from "@/util/database";
 import { ObjectId } from "mongodb";
+import { signIn } from "next-auth/react";
+import Part from "./Part";
 
 export default async function Login() {
   // const client = await connectDB;
   // const db = client.db("market");
-  // let dfdf = await db.collection("user_cred").findOne({ email: "aaa" });
-  // console.log(dfdf);
+  // let allMem = await db.collection("user_cred").find().toArray();
+  //console.log(allMem);
+  // const client = await connectDB;
+  // const db = client.db("market");
+  // let allMem = await db.collection("user_cred").find().toArray();
+  // console.log(allMem);
+
   return (
     <div>
       <h2>LOGIN</h2>
 
-      <form method="POST" action="/api/auth/login">
+      {/* <form method="POST" action="/api/auth/login">
         <EmailPart />
-        <button type="submit">로그인</button>
-      </form>
-
+      </form> */}
+      <Part />
       <div className="loginPL">
         <GoogleLoginBtn />
         <Link href="/member">회원가입</Link>
