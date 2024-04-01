@@ -13,7 +13,7 @@ export default function Part() {
   const handlePw = e => {
     setPw(e.target.value);
   };
-  // let router = useRouter();
+  let router = useRouter();
 
   const handleLogin = () => {
     LoginAxios();
@@ -25,14 +25,13 @@ export default function Part() {
       //.then(res => setEmail(res.data.email))
       //.then(res => console.log(res.data))
       .then(res => {
-        setEmail(res.data.email), setPw(res.data.pw);
+        setEmail(res.data.email),
+          setPw(res.data.pw),
+          alert("로그인성공"),
+          router.push("/");
       })
-      .catch(err => console.error(err));
+      .catch(err => console.log(err));
   };
-
-  if (email === "" || pw === "") {
-    console.log("메롱");
-  }
 
   return (
     <div>
