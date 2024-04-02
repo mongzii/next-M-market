@@ -4,13 +4,13 @@ import axios from "axios";
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 import { useSelector, useDispatch } from "react-redux";
-import { setLogin } from "./redux/store";
+import { setLogin } from "../../redux/store";
 
 export default function Part() {
   const [email, setEmail] = useState("");
   const [pw, setPw] = useState("");
   //const [info, setInfo] = useState("");
-  const dispatch = useDispatch;
+  const dispatch = useDispatch();
 
   const handleEmail = e => {
     setEmail(e.target.value);
@@ -21,14 +21,14 @@ export default function Part() {
   let router = useRouter();
 
   const handleLogin = () => {
+    //setEmail(email);
+    dispatch(setLogin(email, pw));
     LoginAxios();
     //console.log(email);
-    // dispatch(setLogin(email));
-    // console.log(email);
   };
 
-  // const user = useSelector(state => state.loginState);
-  // console.log(user);
+  const user = useSelector(state => state.loginState);
+  console.log(user);
   // const handleRedux = () => {
   //   dispatch(setLogin(info));
   // };
@@ -61,6 +61,5 @@ export default function Part() {
   );
 }
 
-//이제 로그인이 된 정보가 리덕스로 연결되어서 헤더에서 보이게하자.
-
-//로그인버튼을 누르면 payload가 email부분에 들어가야한다.
+//email은 들어가는데 pw는 안들어감. 그거 해결해야함
+//그후 헤더에 email이 보이게 해야함

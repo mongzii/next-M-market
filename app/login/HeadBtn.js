@@ -4,7 +4,7 @@
 
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { setLogin } from "./store";
+import { setLogin } from "../../redux/store";
 
 export default function HeadBtn() {
   const dispatch = useDispatch;
@@ -17,6 +17,7 @@ export default function HeadBtn() {
 
   function handle() {
     dispatch(setLogin(email));
+    console.log(email);
   }
   // const user = useSelector(state => state.loginState);
   // console.log(user);
@@ -26,7 +27,7 @@ export default function HeadBtn() {
       head부분
       <input type="text" onChange={e => setEmail(e.target.value)} />
       <button onClick={handle}>눌러보자</button>
-      {console.log(email)}
+      {/* {console.log(email)} */}
       {/* {console.log(user)} */}
     </div>
   );

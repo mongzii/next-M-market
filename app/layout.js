@@ -6,8 +6,8 @@ import LogoutBtn from "./LogoutBtn";
 import { getServerSession } from "next-auth";
 import { authOptions } from "@/pages/api/auth/[...nextauth]";
 import SignupBtn from "./SignupBtn";
-import ReduxProvider from "./login/redux/provider";
-import HeadBtn from "./login/redux/HeadBtn";
+import ReduxProvider from "../redux/provider";
+import HeadBtn from "./login/HeadBtn";
 //import Header from "./Header";
 
 const inter = Inter({ subsets: ["latin"] });
