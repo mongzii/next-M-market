@@ -1,14 +1,12 @@
 import { Inter } from "next/font/google";
 import "./globals.css";
 import Link from "next/link";
-import LoginBtn from "./LoginBtn";
 import LogoutBtn from "./LogoutBtn";
 import { getServerSession } from "next-auth";
 import { authOptions } from "@/pages/api/auth/[...nextauth]";
-import SignupBtn from "./SignupBtn";
 import ReduxProvider from "../redux/provider";
-import HeadBtn from "./login/HeadBtn";
-//import Header from "./Header";
+//import TestBtn from "./TestBtn";
+import HeaderLoginP from "./HeaderLoginP";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -39,17 +37,14 @@ export default async function RootLayout({ children }) {
             </span>
           ) : (
             <div className="head-design1">
-              <LoginBtn />
-              <SignupBtn />
+              <ReduxProvider>
+                <HeaderLoginP />
+              </ReduxProvider>
             </div>
           )}
         </div>
-        <ReduxProvider>
-          {children}
 
-          {/* <Header /> */}
-          <HeadBtn />
-        </ReduxProvider>
+        <ReduxProvider>{children}</ReduxProvider>
 
         <div className="footer">Copyright 2024 by Moon</div>
       </body>

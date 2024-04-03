@@ -1,4 +1,5 @@
 "use client";
+//자체 로그인부분
 
 import axios from "axios";
 import { useState } from "react";
@@ -22,16 +23,12 @@ export default function Part() {
 
   const handleLogin = () => {
     //setEmail(email);
-    dispatch(setLogin(email, pw));
+    //dispatch(setLogin({ email, pw })); //디스패치가 입력된 액션값을 가지고 온다.
     LoginAxios();
-    //console.log(email);
+    // console.log(email, pw);
   };
-
-  const user = useSelector(state => state.loginState);
-  console.log(user);
-  // const handleRedux = () => {
-  //   dispatch(setLogin(info));
-  // };
+  // const user2 = useSelector(state => state.loginState.user);
+  // console.log(user2?.email);
 
   const LoginAxios = () => {
     const body = { email, pw };
@@ -42,8 +39,8 @@ export default function Part() {
         setEmail(res.data.email),
           setPw(res.data.pw),
           alert("로그인성공"),
-          //dispatch(setLogin(email));
-          router.push("/");
+          dispatch(setLogin({ email, pw })); //디스패치가 입력된 액션값을 가지고 온다. 이걸 원하는 곳에 가서 selectorr로 쓰면된다
+        router.push("/");
       })
       .catch(err => {
         alert("실패"), setEmail(""), setPw("");

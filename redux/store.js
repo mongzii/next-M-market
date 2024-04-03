@@ -13,11 +13,11 @@ const LoginState = createSlice({
   reducers: {
     //로그인한 유저 변경되는게 들어가야한다.
     setLogin: (state, action) => {
-      state.email = action.payload;
-      state.pw = action.payload;
+      state.user = action.payload;
     },
     setLogout: state => {
       state.email = null;
+      state.pw = null;
     },
   },
 });
