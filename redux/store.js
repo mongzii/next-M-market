@@ -21,11 +21,28 @@ const LoginState = createSlice({
     },
   },
 });
+const CartState = createSlice({
+  name: "cart",
+  initialState: {
+    id: 3,
+    product: "문씨집안자켓",
+    price: "20000",
+    amount: 2,
+  },
+
+  reducers: {
+    increasement(state, action) {
+      state + action; // 여기서 문제인것 같다.
+    },
+  },
+});
 
 export const { setLogin, setLogout } = LoginState.actions;
+export const { increasement } = CartState.actions;
 
 export default configureStore({
   reducer: {
     loginState: LoginState.reducer,
+    cartState: CartState.reducer,
   },
 });

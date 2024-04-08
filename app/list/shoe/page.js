@@ -1,21 +1,11 @@
 "use client";
 
 import ListLeft from "@/app/ListLeft";
+import { productData } from "@/util/productData";
 import { useState } from "react";
 
 export default function ShoePage() {
-  let 상품 = [
-    "Tomatoes",
-    "Pasta",
-    "Coconut",
-    "Tomatoes",
-    "Pasta",
-    "Coconut",
-    "Tomatoes",
-    "Pasta",
-    "Coconut",
-  ];
-  let [수량, 수량변경] = useState([2, 2, 2, 2, 2, 2, 2, 1, 1]);
+  //let [수량, 수량변경] = useState([2, 2, 2, 2, 2, 2, 2, 1, 1]);
 
   return (
     <div>
@@ -26,12 +16,14 @@ export default function ShoePage() {
         </div>
         <div className="list-right">
           <div className="goods">
-            {상품.map((a, i) => {
+            {productData.shoe.map((a, i) => {
               return (
                 <div className="food" key={i}>
                   <img src={`/shoe${i + 1}.png`} className="food-img" />
-                  <h4>{상품[i]} $40</h4>
-                  <button
+                  <h4>{productData.shoe[i].product}</h4>
+                  <h4>{productData.shoe[i].price}원</h4>
+                  <button>장바구니</button>
+                  {/* <button
                     onClick={() => {
                       let minuscopy = [...수량];
                       minuscopy[i]--;
@@ -49,7 +41,7 @@ export default function ShoePage() {
                     }}
                   >
                     +
-                  </button>
+                  </button> */}
                 </div>
               );
             })}

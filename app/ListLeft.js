@@ -20,14 +20,14 @@ export default function ListLeft() {
           router.push("/list/jacket");
         }}
       >
-        jacket
+        Jacket
       </li>
       <li
         onClick={() => {
           router.push("/list/shoe");
         }}
       >
-        shoe
+        Shoe
       </li>
     </div>
   );

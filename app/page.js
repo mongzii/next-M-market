@@ -1,5 +1,4 @@
 import { connectDB } from "@/util/database";
-import { MongoClient } from "mongodb";
 
 export default async function Home() {
   const client = await connectDB;
@@ -10,7 +9,6 @@ export default async function Home() {
   return (
     <div>
       <h4 className="title">애플후레시</h4>
-      {/* <p className="title-sub">by Moon</p> */}
     </div>
   );
 }

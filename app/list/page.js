@@ -3,22 +3,12 @@
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 import ListLeft from "../ListLeft";
+import { productData } from "@/util/productData";
 
 export default function List() {
   let router = useRouter();
 
-  let 상품 = [
-    "Tomatoes",
-    "Pasta",
-    "Coconut",
-    "Tomatoes",
-    "Pasta",
-    "Coconut",
-    "Tomatoes",
-    "Pasta",
-    "Coconut",
-  ];
-  let [수량, 수량변경] = useState([2, 2, 2, 2, 2, 2, 2, 1, 1]);
+  //let [수량, 수량변경] = useState([2, 2, 2, 2, 2, 2, 2, 1, 1]);
 
   return (
     <div>
@@ -29,7 +19,27 @@ export default function List() {
         </div>
         <div className="list-right">
           <div className="goods">
-            {상품.map((a, i) => {
+            {productData.jacket.map((a, i) => {
+              return (
+                <div className="food" key={i}>
+                  <img src={`/jacket${i + 1}.png`} className="food-img" />
+                  <h4>{productData.jacket[i].product}</h4>
+                  <h4>{productData.jacket[i].price}원</h4>
+                  <button>장바구니</button>
+                </div>
+              );
+            })}
+            {productData.shoe.map((a, i) => {
+              return (
+                <div className="food" key={i}>
+                  <img src={`/shoe${i + 1}.png`} className="food-img" />
+                  <h4>{productData.shoe[i].product}</h4>
+                  <h4>{productData.shoe[i].price}원</h4>
+                  <button>장바구니</button>
+                </div>
+              );
+            })}
+            {/* {상품.map((a, i) => {
               return (
                 <div className="food" key={i}>
                   <img src={`/jacket${i + 1}.png`} className="food-img" />
@@ -55,9 +65,8 @@ export default function List() {
                   </button>
                 </div>
               );
-            })}
-
-            {상품.map((a, i) => {
+            })} */}
+            {/* {상품.map((a, i) => {
               return (
                 <div className="food" key={i}>
                   <img src={`/shoe${i + 1}.png`} className="food-img" />
@@ -83,7 +92,7 @@ export default function List() {
                   </button>
                 </div>
               );
-            })}
+            })} */}
           </div>
         </div>
       </div>
