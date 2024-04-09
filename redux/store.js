@@ -23,16 +23,23 @@ const LoginState = createSlice({
 });
 const CartState = createSlice({
   name: "cart",
+  // initialState: {
+  //   value: 0,
+  // },
   initialState: {
-    id: 3,
-    product: "문씨집안자켓",
-    price: "20000",
-    amount: 2,
+    value: {
+      id: 3,
+      product: "나이키핫해",
+      count: 1,
+    },
   },
+  // initialState: 0,
 
   reducers: {
-    increasement(state, action) {
-      state + action; // 여기서 문제인것 같다.
+    increasement: (state, action) => {
+      state.value.id = action.payload.id;
+      state.value.product = action.payload.product;
+      state.value.count = action.payload.count++;
     },
   },
 });
@@ -45,4 +52,5 @@ export default configureStore({
     loginState: LoginState.reducer,
     cartState: CartState.reducer,
   },
+  devTools: true,
 });

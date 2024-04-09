@@ -1,21 +1,51 @@
 "use client";
 
-// import { useSelector } from "react-redux";
+import { productData } from "@/util/productData";
+import { useDispatch, useSelector } from "react-redux";
+import { increasement } from "@/redux/store";
 
 export default function Item() {
-  //   const dispatch = useDispatch();
-  // const cart2 = useSelector(state => state);
-  // const cart2 = useSelector(state => state.CartState);
-  // console.log(cart2);
+  const Item = productData.cartItem;
+  const dispatch = useDispatch();
+  const state = useSelector(state => state.CartState);
+  const increClick = (id, product, price, count) => {
+    //console.log("+++");
+    dispatch(
+      increasement({
+        id: 9,
+        product: "발바리",
+        price: "20000",
+        count: "1",
+      })
+    );
+    // dispatch(
+    //   increasement({
+    //     id: state.value.id,
+    //     product: state.value.product,
+    //     price: state.value.price,
+    //     count: state.value.count,
+    //   })
+    // );
+  };
+  const decreClick = () => {
+    console.log("---");
+  };
 
   return (
     <div>
       <h2 className="title">Cart</h2>
-      <div className="cart-item">
-        <p>ㅇㄹㅇㄹ</p>
-        <p>$40</p>
-        <p>1개</p>
-      </div>
+
+      {Item.map((a, i) => {
+        return (
+          <div className="cart-item" key={i}>
+            <p>{a.product}</p>
+            <p>{a.price}</p>
+            <button onClick={increClick}>+</button>
+            {/* <p>{state.value.amount}</p> */}
+            <button onClick={decreClick}>-</button>
+          </div>
+        );
+      })}
     </div>
   );
 }
