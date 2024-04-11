@@ -10,7 +10,7 @@ import { addcart } from "@/redux/store";
 export default function List() {
   let router = useRouter();
   const dispatch = useDispatch();
-  const value2 = useSelector(state => state.CartState);
+  //const value2 = useSelector(state => state.CartState);
   // console.log(value2);
 
   //let [수량, 수량변경] = useState([2, 2, 2, 2, 2, 2, 2, 1, 1]);

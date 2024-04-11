@@ -1,4 +1,7 @@
+import { productData } from "@/util/productData";
 import { createSlice, configureStore, PayloadAction } from "@reduxjs/toolkit";
+
+const Item = productData.cartItem;
 
 const initialState = {
   value: {
@@ -44,27 +47,52 @@ const CartState = createSlice({
 
   reducers: {
     addcart: (state, action) => {
+      //리스트에서 장바구니버튼 누르면 cart에 추가되는 기능
       //state = action.payload;
       //디스패치에 있는 값에 따라 조절이된다.
-      state.value.id = action.payload.id;
-      state.value.product = action.payload.product;
-      state.value.price = action.payload.price;
-      state.value.count = action.payload.count++;
-      // state.merchandise.id = action.payload.id;
-      //state.value = action.payload.product;
-      // state.merchandise.count += 1;
+      // state.value.id = action.payload.id;
+      // state.value.product = action.payload.product;
+      // state.value.price = action.payload.price;
+      // state.value.count = action.payload.count++;
+
       //id와 product명이 맞으면 +1하고 그게 아니면 =1하자. 아니다 이건 그냥 +하는거니까 +하자.
-    },
-    decreasement: (state, action) => {
-      if (state.merchandise.product === action.payload.product) {
-        state.merchandise.count = action.payload.count--;
+      if (state.value.product === action.payload.product) {
+        state.value.count = action.payload.count++;
+      } else {
+        Item.push({
+          id: action.payload.id,
+          product: action.payload.product,
+          price: action.payload.price,
+          count: 1,
+        });
       }
     },
+    countUp: (state, action) => {
+      //cart에서 수량 조절하는 것 , 플러스
+      // state.value.count = action.payload.count++;
+      // state.value.count += 1;
+      //console.log(action.payload.product);
+      // console.log(Item); //이걸 순회해서 product명이 같은것만 count를 올리자
+      for (let i = 0; i < Item.length; i++) {
+        if (Item[i].product === action.payload.product) {
+          // state.value.count = Item[i].count + 1;
+          Item[i].count += 1;
+        }
+      }
+    },
+    countDown: (state, action) => {
+      //cart에서 수량 조절하는 것, 마이너스
+    },
+    // decreasement: (state, action) => {
+    //   if (state.merchandise.product === action.payload.product) {
+    //     state.merchandise.count = action.payload.count--;
+    //   }
+    // },
   },
 });
 
 export const { setLogin, setLogout } = LoginState.actions;
-export const { addcart, decreasement } = CartState.actions;
+export const { addcart, countUp } = CartState.actions;
 
 export default configureStore({
   reducer: {

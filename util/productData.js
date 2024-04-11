@@ -114,16 +114,22 @@ export const productData = {
   ],
   cartItem: [
     {
+      id: 1,
+      product: "홍해인자켓",
+      price: "20000",
+      count: 1,
+    },
+    {
       id: 6,
       product: "티모시자켓",
       price: "20000",
-      count: "1",
+      count: 1,
     },
     {
       id: 8,
       product: "뉴발",
       price: "20000",
-      count: "1",
+      count: 1,
     },
   ],
 };
