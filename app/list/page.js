@@ -5,7 +5,7 @@ import { useRouter } from "next/navigation";
 import ListLeft from "../ListLeft";
 import { productData } from "@/util/productData";
 import { useDispatch, useSelector } from "react-redux";
-import { increasement } from "@/redux/store";
+import { addcart } from "@/redux/store";
 
 export default function List() {
   let router = useRouter();
@@ -14,12 +14,14 @@ export default function List() {
   // console.log(value2);
 
   //let [수량, 수량변경] = useState([2, 2, 2, 2, 2, 2, 2, 1, 1]);
-  const handleClick = (id, product, count) => {
-    dispatch(increasement({ id, product, count })); //여기에 id가 들어오면 이게 payload다.
+  const handleClick = (id, product, count, price) => {
+    dispatch(addcart({ id, product, count, price })); //여기에 id가 들어오면 이게 payload다. 여기서 넘겨주는것만 item에서 받을수있다
     //console.log(value2);
     // console.log({ i });
+    //여기서 보낸 id랑 product가
+    router.push("/cart");
   };
-  console.log(productData);
+  //console.log(productData);
   return (
     <div>
       <h2 className="title">상품목록</h2>
@@ -39,7 +41,11 @@ export default function List() {
                   {/* <button onClick={()=>handleClick(), ()=>{console.log()}}>장바구니</button> */}
                   {/* <button onClick={() => console.log(a.id)}>장바구니</button>  */}
                   {/* //클릭되는 것의 아이디것만 value가 올라가게 해보자 */}
-                  <button onClick={() => handleClick(a.id, a.product, a.count)}>
+                  <button
+                    onClick={() =>
+                      handleClick(a.id, a.product, a.count, a.price)
+                    }
+                  >
                     장바구니
                   </button>
                 </div>
