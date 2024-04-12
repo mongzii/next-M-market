@@ -2,10 +2,18 @@
 
 import ListLeft from "@/app/ListLeft";
 import { productData } from "@/util/productData";
-import { useState } from "react";
+import { useDispatch } from "react-redux";
+import { addcart } from "@/redux/store";
+import { useRouter } from "next/navigation";
 
 export default function ShoePage() {
-  //let [수량, 수량변경] = useState([2, 2, 2, 2, 2, 2, 2, 1, 1]);
+  let router = useRouter();
+  const dispatch = useDispatch();
+
+  const handleClick = (id, product, count, price) => {
+    dispatch(addcart({ id, product, count, price }));
+    router.push("/cart");
+  };
 
   return (
     <div>
@@ -22,26 +30,13 @@ export default function ShoePage() {
                   <img src={`/shoe${i + 1}.png`} className="food-img" />
                   <h4>{productData.shoe[i].product}</h4>
                   <h4>{productData.shoe[i].price}원</h4>
-                  <button>장바구니</button>
-                  {/* <button
-                    onClick={() => {
-                      let minuscopy = [...수량];
-                      minuscopy[i]--;
-                      수량변경(minuscopy);
-                    }}
-                  >
-                    -
-                  </button>
-                  <span> {수량[i]} </span>
                   <button
-                    onClick={() => {
-                      let copy = [...수량];
-                      copy[i]++;
-                      수량변경(copy);
-                    }}
+                    onClick={() =>
+                      handleClick(a.id, a.product, a.count, a.price)
+                    }
                   >
-                    +
-                  </button> */}
+                    장바구니
+                  </button>
                 </div>
               );
             })}
