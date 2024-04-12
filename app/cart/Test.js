@@ -50,6 +50,9 @@ export default function Test() {
   const handleUp = i => {
     dispatch(countUp(i));
   };
+  const handleDown = i => {
+    dispatch(countDown(i));
+  };
   return (
     <div>
       {/* <h4>{product}</h4> */}
@@ -65,6 +68,7 @@ export default function Test() {
 
             <button onClick={() => handleUp(i)}>+</button>
             <p>{a.count}</p>
+            <button onClick={() => handleDown(i)}>-</button>
             {/* <button
               onClick={() => handleDown(a.id, a.product, a.price, a.count)}
             >

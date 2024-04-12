@@ -93,6 +93,7 @@ const CartState = createSlice({
     },
     countDown: (state, action) => {
       //cart에서 수량 조절하는 것, 마이너스
+      state[action.payload].count--;
       // for(let i=0; i<Item.length; i++){
       //   if()
       // }
