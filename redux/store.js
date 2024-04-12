@@ -72,6 +72,10 @@ const CartState = createSlice({
       // });
       state.push(action.payload);
     },
+    deletecart: (state, action) => {
+      state.pop(action.payload);
+    },
+
     countUp: (state, action) => {
       //cart에서 수량 조절하는 것 , 플러스
       // state.value.count = action.payload.count++;
@@ -106,6 +110,7 @@ const CartState = createSlice({
       // }
       //Item[i].count -= 1; //이렇게하면 어떻게되는지 일단 테스트해보자
     },
+
     // decreasement: (state, action) => {
     //   if (state.merchandise.product === action.payload.product) {
     //     state.merchandise.count = action.payload.count--;
@@ -115,7 +120,7 @@ const CartState = createSlice({
 });
 
 export const { setLogin, setLogout } = LoginState.actions;
-export const { addcart, countUp, countDown } = CartState.actions;
+export const { addcart, deletecart, countUp, countDown } = CartState.actions;
 
 export default configureStore({
   reducer: {

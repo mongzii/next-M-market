@@ -1,11 +1,9 @@
-// import Item from "./Item";
-import Test from "./Test";
+import Item from "./Item";
 
 export default function Cart() {
   return (
     <div>
-      {/* <Item /> */}
-      <Test />
+      <Item />
     </div>
   );
 }
