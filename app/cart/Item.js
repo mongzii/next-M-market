@@ -26,7 +26,7 @@ export default function Item() {
       {Item.map((a, i) => {
         return (
           <div className="cart-item" key={i}>
-            <p>{a.id}</p>
+            {/* <p>{a.id}</p> */}
             <p>{a.product}</p>
             <p>{a.price}</p>
             <button onClick={() => handleUp(i)}>+</button>
