@@ -59,30 +59,18 @@ const CartState = createSlice({
       count: 1,
     },
   ],
-
+  //initialState를 수정해주는 함수이다
   reducers: {
-    //initialState를 수정해주는 함수이다
+    //리스트에서 장바구니버튼 누르면 cart에 추가되는 기능v
     addcart: (state, action) => {
-      //리스트에서 장바구니버튼 누르면 cart에 추가되는 기능
-      //state = action.payload;
-      //디스패치에 있는 값에 따라 조절이된다.
-      // state.value.id = action.payload.id;
-      // state.value.product = action.payload.product;
-      // state.value.price = action.payload.price;
-      // state.value.count = action.payload.count++;
-
-      //id와 product명이 맞으면 +1하고 그게 아니면 =1하자. 아니다 이건 그냥 +하는거니까 +하자.
-      //이거이상함 다시 손봐야함
-      if (state.value.product === action.payload.product) {
-        state.value.count = action.payload.count++;
-      } else {
-        Item.push({
-          id: action.payload.id,
-          product: action.payload.product,
-          price: action.payload.price,
-          count: 1,
-        });
-      }
+      //console.log(action.payload);
+      // state.push({
+      //   id: action.payload.id,
+      //   product: action.payload.product,
+      //   price: action.payload.price,
+      //   count: 1,
+      // });
+      state.push(action.payload);
     },
     countUp: (state, action) => {
       //cart에서 수량 조절하는 것 , 플러스
