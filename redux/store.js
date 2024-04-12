@@ -1,4 +1,3 @@
-import { productData } from "@/util/productData";
 import { createSlice, configureStore } from "@reduxjs/toolkit";
 
 const initialState = {
@@ -40,16 +39,17 @@ const CartState = createSlice({
   ],
   //initialState를 수정해주는 함수이다
   reducers: {
-    //리스트에서 장바구니버튼 누르면 cart에 추가되는 기능v
+    //장바구니에서추가, 리스트페이지랑연결
     addcart: (state, action) => {
-      // state.push({
-      //   id: action.payload.id,
-      //   product: action.payload.product,
-      //   price: action.payload.price,
-      //   count: 1,
-      // });
-      state.push(action.payload);
+      //state.push(action.payload);
+      const common = state.findIndex(
+        el => el.product === action.payload.product
+      );
+      {
+        common === -1 ? state.push(action.payload) : state[common].count++;
+      }
     },
+    //장바구니에서삭제
     deletecart: (state, action) => {
       state.pop(action.payload);
     },
