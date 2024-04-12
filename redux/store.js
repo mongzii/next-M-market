@@ -1,7 +1,7 @@
 import { productData } from "@/util/productData";
 import { createSlice, configureStore, PayloadAction } from "@reduxjs/toolkit";
 
-const Item = productData.cartItem;
+//const Item = productData.cartItem;
 
 const initialState = {
   value: {
@@ -29,23 +29,39 @@ const CartState = createSlice({
   // initialState: {
   //   value: 0,
   // },
-  initialState: {
-    //처음 state
-    value: {
-      id: null,
-      product: "",
-      price: 0,
-      count: 0,
-    },
-    // value: {
-    //   id: 3,
-    //   product: "내가누구게",
-    //   count: 3,
-    // },
-  },
+  // initialState: {
+  //   //처음 state
+  //   // value: {
+  //   //   id: null,
+  //   //   product: "",
+  //   //   price: 0,
+  //   //   count: 0,
+  //   // },
+  //   value: {
+  //     id: 1,
+  //     product: "홍해인자켓",
+  //     price: "20000",
+  //     count: 1,
+  //   },
+  // },
   //initialState: "kim",
+  initialState: [
+    {
+      id: 1,
+      product: "홍해인자켓",
+      price: "20000",
+      count: 1,
+    },
+    {
+      id: 6,
+      product: "티모시자켓",
+      price: "20000",
+      count: 1,
+    },
+  ],
 
   reducers: {
+    //initialState를 수정해주는 함수이다
     addcart: (state, action) => {
       //리스트에서 장바구니버튼 누르면 cart에 추가되는 기능
       //state = action.payload;
@@ -56,6 +72,7 @@ const CartState = createSlice({
       // state.value.count = action.payload.count++;
 
       //id와 product명이 맞으면 +1하고 그게 아니면 =1하자. 아니다 이건 그냥 +하는거니까 +하자.
+      //이거이상함 다시 손봐야함
       if (state.value.product === action.payload.product) {
         state.value.count = action.payload.count++;
       } else {
@@ -73,15 +90,32 @@ const CartState = createSlice({
       // state.value.count += 1;
       //console.log(action.payload.product);
       // console.log(Item); //이걸 순회해서 product명이 같은것만 count를 올리자
-      for (let i = 0; i < Item.length; i++) {
-        if (Item[i].product === action.payload.product) {
-          // state.value.count = Item[i].count + 1;
-          Item[i].count += 1;
-        }
-      }
+      //---------------원래되던부분-------
+      // for (let i = 0; i < Item.length; i++) {
+      //   if (Item[i].product === action.payload.product) {
+      //     // state.value.count = Item[i].count + 1;
+      //     Item[i].count += 1;
+      //     // console.log(Item[i]);
+      //   }
+      // }
+      //action.payload.count += 1;
+      //state[0].count++;
+      state[action.payload].count++;
+      //console.log(Item);
     },
     countDown: (state, action) => {
       //cart에서 수량 조절하는 것, 마이너스
+      // for(let i=0; i<Item.length; i++){
+      //   if()
+      // }
+      //console.log(action.payload.product); //여기에 클릭한 값이 뜬다
+      // for (let i = 0; i < Item.length; i++) {
+      //   if (Item[i].product === action.payload.product) {
+      //     Item[i].count -= 1;
+      //     // console.log(Item[i]);
+      //   }
+      // }
+      //Item[i].count -= 1; //이렇게하면 어떻게되는지 일단 테스트해보자
     },
     // decreasement: (state, action) => {
     //   if (state.merchandise.product === action.payload.product) {
@@ -92,7 +126,7 @@ const CartState = createSlice({
 });
 
 export const { setLogin, setLogout } = LoginState.actions;
-export const { addcart, countUp } = CartState.actions;
+export const { addcart, countUp, countDown } = CartState.actions;
 
 export default configureStore({
   reducer: {
