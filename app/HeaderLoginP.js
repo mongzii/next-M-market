@@ -7,6 +7,7 @@ import LogoutBtn from "./LogoutBtn";
 
 export default function HeaderLoginP() {
   const user2 = useSelector(state => state.loginState.user);
+
   // console.log(user2?.email);
   return (
     <div>

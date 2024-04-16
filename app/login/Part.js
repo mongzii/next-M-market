@@ -10,6 +10,7 @@ import { setLogin } from "../../redux/store";
 export default function Part() {
   const [email, setEmail] = useState("");
   const [pw, setPw] = useState("");
+  const [accessToken, setAccessToken] = useState("hahaha");
   //const [info, setInfo] = useState("");
   const dispatch = useDispatch();
 
@@ -31,15 +32,17 @@ export default function Part() {
   // console.log(user2?.email);
 
   const LoginAxios = () => {
-    const body = { email, pw };
+    const body = { email, pw, accessToken };
+    //기본값으로 설정한 accessToken이 body에 담겨서 일단 잘 넘어가기는 한다.
+    //이제 저걸 암호화해서 넘겨줘야하는거같은데....
     axios
       .post("/api/auth/login", body)
       //.then(res => console.log(res.data))
       .then(res => {
-        setEmail(res.data.email),
-          setPw(res.data.pw),
-          alert("로그인성공"),
-          dispatch(setLogin({ email, pw })); //디스패치가 입력된 액션값을 가지고 온다. 이걸 원하는 곳에 가서 selectorr로 쓰면된다
+        setEmail(res.data.email), setPw(res.data.pw), console.log(res);
+        alert("로그인성공"), dispatch(setLogin({ email, pw })); //디스패치가 입력된 액션값을 가지고 온다. 이걸 원하는 곳에 가서 selectorr로 쓰면된다
+        localStorage.setItem("accessToken", res.data.accessToken);
+        // localStorage.setItem("refreshToken", res.data.refreshToken);
         router.push("/");
       })
       .catch(err => {

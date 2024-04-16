@@ -44,7 +44,7 @@ export const authOptions = {
     }),
   ],
   session: {
-    strategy: "jwt",
+    strategy: "jwt", //jwt를 사용하여 세션을 관리한다는 의미
     maxAge: 30 * 24 * 60 * 60, //30일
   },
   callbacks: {
@@ -68,7 +68,7 @@ export const authOptions = {
 
   //내가 만든 로그인페이지로 이동할수있게
   pages: {
-    signUp: "/login",
+    signUp: "/",
   },
 };
 
