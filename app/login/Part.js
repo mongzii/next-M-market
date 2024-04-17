@@ -10,7 +10,7 @@ import { setLogin } from "../../redux/store";
 export default function Part() {
   const [email, setEmail] = useState("");
   const [pw, setPw] = useState("");
-  const [accessToken, setAccessToken] = useState("hahaha");
+  const [accessToken, setAccessToken] = useState("");
   //const [info, setInfo] = useState("");
   const dispatch = useDispatch();
 
@@ -39,14 +39,18 @@ export default function Part() {
       .post("/api/auth/login", body)
       //.then(res => console.log(res.data))
       .then(res => {
-        setEmail(res.data.email), setPw(res.data.pw), console.log(res);
+        setEmail(res.data.email),
+          setPw(res.data.pw),
+          //setAccessToken(res.data.accessToken),
+          localStorage.setItem("accessToken", res.data.accessToken);
+        //console.log(res);
         alert("로그인성공"), dispatch(setLogin({ email, pw })); //디스패치가 입력된 액션값을 가지고 온다. 이걸 원하는 곳에 가서 selectorr로 쓰면된다
-        localStorage.setItem("accessToken", res.data.accessToken);
+
         // localStorage.setItem("refreshToken", res.data.refreshToken);
         router.push("/");
       })
       .catch(err => {
-        alert("실패"), setEmail(""), setPw("");
+        alert("실패"), setEmail(""), setPw(""), setAccessToken("");
       });
   };
 

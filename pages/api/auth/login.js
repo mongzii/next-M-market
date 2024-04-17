@@ -54,7 +54,19 @@ export default async function handle(요청, 응답) {
       //   expiresIn: "2m",
       // });
       // return 응답.send({ tokenone: token1, tokentwo: token2 });
-      return 응답.status(200).json(요청.body);
+      //let token = jwt.sign({ foo: "bar" }, "shhhhhh");
+      //let token = jwt.sign({ foo: "bar" }, "RS256");
+      let token = jwt.sign({ email: "babo" }, "RS256", { expiresIn: "1h" });
+      // let token = jwt.sign({ email: "bar" }, `${process.env.SECRET_KEY}`, {
+      //   algorithm: "RS256",
+      //   expiresIn: "1h",
+      // });
+      //return 응답.status(200).json(요청.body);
+      //return 응답.status(200).json(token);
+      return 응답
+        .status(200)
+        .json({ email: 요청.body.email, pw: 요청.body.pw, accessToken: token });
+
       //return 응답.redirect(302, "/");
     } else {
       return 응답.status(500).json("틀림");
