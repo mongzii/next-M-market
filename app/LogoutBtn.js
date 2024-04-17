@@ -7,6 +7,7 @@ export default function LogoutBtn() {
     <button
       onClick={() => {
         signOut();
+        localStorage.removeItem("accessToken");
       }}
     >
       로그아웃
