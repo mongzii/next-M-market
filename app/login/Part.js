@@ -45,8 +45,6 @@ export default function Part() {
           localStorage.setItem("accessToken", res.data.accessToken);
         //console.log(res);
         alert("로그인성공"), dispatch(setLogin({ email, pw })); //디스패치가 입력된 액션값을 가지고 온다. 이걸 원하는 곳에 가서 selectorr로 쓰면된다
-
-        // localStorage.setItem("refreshToken", res.data.refreshToken);
         router.push("/");
       })
       .catch(err => {

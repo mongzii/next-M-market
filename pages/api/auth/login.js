@@ -56,7 +56,9 @@ export default async function handle(요청, 응답) {
       // return 응답.send({ tokenone: token1, tokentwo: token2 });
       //let token = jwt.sign({ foo: "bar" }, "shhhhhh");
       //let token = jwt.sign({ foo: "bar" }, "RS256");
-      let token = jwt.sign({ email: "babo" }, "RS256", { expiresIn: "1h" });
+      let token = jwt.sign({ email: 요청.body.email }, "RS256", {
+        expiresIn: "5m",
+      });
       // let token = jwt.sign({ email: "bar" }, `${process.env.SECRET_KEY}`, {
       //   algorithm: "RS256",
       //   expiresIn: "1h",
