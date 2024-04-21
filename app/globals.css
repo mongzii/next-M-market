@@ -4,30 +4,30 @@ body {
   color: #eeeeee;
   box-sizing: border-box;
 }
+/* ----------------top슬라이드부분------------ */
 
-.main-top {
-  border: 1px solid red;
-  display: flex;
-
-  /* width: 1800px; */
-  width: 900px;
-  overflow: hidden;
-  background-color: yellowgreen;
-}
 .slide-container {
+  width: 700px;
   display: flex;
-  flex-direction: row;
+  overflow: hidden;
+}
 
-  /* transition: all 0.3s ease-out; */
-}
-.slide-box {
-  float: left;
-}
 .slide-box img {
   width: 700px;
   height: 450px;
-  opacity: 0.5;
+  /* transform: translate(-700px); */
 }
+
+/* .slide-box {
+  float: left;
+} */
+/* .slide-box img {
+  width: 700px;
+  height: 450px;
+  opacity: 0.5;
+} */
+
+/* ---------------------------------------- */
 .main-middle {
   display: flex;
   flex-direction: row;
