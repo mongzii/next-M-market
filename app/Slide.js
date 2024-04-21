@@ -31,7 +31,7 @@ export default function Slide() {
             <div
               className="slide-box"
               key={i}
-              style={{ transform: `translateX(-${index * 700}px)` }}
+              style={{ transform: `translateX(-${index * 900}px)` }}
             >
               <img src={image} alt={`Slide ${i + 1}`} />
             </div>
@@ -39,6 +39,7 @@ export default function Slide() {
         </div>
       </div>
       <button onClick={movePrev}>pre</button>
+
       <button onClick={moveNext}>next</button>
     </div>
   );
