@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { BiCaretLeftCircle, BiCaretRightCircle } from "react-icons/bi";
 
 export default function Slide() {
   const images = [
@@ -24,7 +25,8 @@ export default function Slide() {
   };
 
   return (
-    <div>
+    <div className="main-body">
+      <BiCaretLeftCircle size="60" onClick={movePrev} />
       <div className="main-top">
         <div className="slide-container">
           {images.map((image, i) => (
@@ -38,9 +40,10 @@ export default function Slide() {
           ))}
         </div>
       </div>
-      <button onClick={movePrev}>pre</button>
+      {/* <button onClick={movePrev}>pre</button> */}
+      {/* <button onClick={moveNext}>next</button> */}
 
-      <button onClick={moveNext}>next</button>
+      <BiCaretRightCircle size="60" onClick={moveNext} />
     </div>
   );
 }

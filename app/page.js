@@ -9,7 +9,7 @@ export default async function Home() {
 
   return (
     <div>
-      <h2 className="title">M-market</h2>
+      <h1 className="title">M-market</h1>
       <div className="main">
         {/* <div className="main-top">
           <div className="slide-container">
