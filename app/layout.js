@@ -31,10 +31,10 @@ export default async function RootLayout({ children }) {
           </ReduxProvider>
           <Link href="/board">Q&A</Link>
           {session ? (
-            <span className="head-design1">
+            <div className="head-design1">
               <div className="head-memberInfo">{session.user.name}</div>
               <LogoutBtn />
-            </span>
+            </div>
           ) : (
             <div className="head-design1">
               <ReduxProvider>

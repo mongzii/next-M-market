@@ -51,9 +51,6 @@ body {
 
 .head-design1 {
   /* border: 5px solid red; */
-  display: flex;
-  flex-direction: row;
-  justify-content: flex-end;
 }
 .head-memberInfo {
   color: blue;
@@ -126,6 +123,14 @@ body {
   color: #eeeeee;
   font-weight: 550;
 }
+.navbtn {
+  /* border: 10px solid red; */
+  display: flex;
+  justify-content: flex-end;
+  margin-right: 3rem;
+  gap: 1rem;
+}
+
 .logo {
   font-weight: bold;
 }

@@ -13,15 +13,15 @@ export default function HeaderLoginP() {
   return (
     <div>
       {user2 || token ? (
-        <div>
+        <div className="navbtn">
           {/* <h2>{user2?.email}님</h2> */}
           <h2>안녕하세요</h2>
-          <LogoutBtn />
+          <LogoutBtn className="navbtn2" />
         </div>
       ) : (
-        <div>
-          <LoginBtn />
-          <SignupBtn />
+        <div className="navbtn">
+          <LoginBtn className="navbtn2" />
+          <SignupBtn className="navbtn2" />
         </div>
       )}
     </div>
