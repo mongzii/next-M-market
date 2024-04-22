@@ -139,6 +139,12 @@ body {
   width: 100%;
   height: auto;
 }
+/* --------------장바구니------------------ */
+.title-cart {
+  text-align: center;
+  margin-top: 50px;
+  margin-bottom: 3rem;
+}
 
 .cart-item {
   padding: 10px;
@@ -147,6 +153,44 @@ body {
   border-bottom: 1px solid gray;
   line-height: 0px;
 }
+.item1 {
+  flex-grow: 2;
+  font-size: 1.2rem;
+  font-weight: 550;
+  padding-left: 180px;
+}
+.item2 {
+  flex-grow: 2;
+  font-size: 1.2rem;
+  font-weight: 500;
+}
+.item3 {
+  display: flex;
+  gap: 1rem;
+  flex-grow: 1;
+  align-items: center;
+
+  button {
+    background-color: black;
+    color: white;
+    &:hover {
+      cursor: pointer;
+      background-color: #153448;
+    }
+  }
+}
+.item4 {
+  flex-grow: 0.5;
+  button {
+    background-color: black;
+    color: white;
+    &:hover {
+      cursor: pointer;
+      background-color: #153448;
+    }
+  }
+}
+/* -------------------------------- */
 
 .list-bg {
   background: rgb(249, 250, 255);
@@ -218,4 +262,10 @@ a {
 .loginPL a {
   text-decoration: none;
   color: white;
+}
+/* --------------로딩화면------------------ */
+.load {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
